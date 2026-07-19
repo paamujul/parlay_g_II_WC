@@ -6,9 +6,9 @@
 <title>Parlay-G · Spain vs Argentina Live</title>
 <style>
   :root {
-    --bg: #0d1117; --card: #161b22; --border: #30363d;
-    --text: #e6edf3; --muted: #8b949e;
-    --esp: #e4393c; --arg: #6cb4ee; --draw: #8b949e; --accent: #3fb950;
+    --bg: #f6f8fa; --card: #ffffff; --border: #d8dee4;
+    --text: #1f2328; --muted: #59636e;
+    --esp: #c94040; --arg: #2f6feb; --draw: #9aa4af; --accent: #1a7f37;
   }
   * { box-sizing: border-box; margin: 0; }
   body { background: var(--bg); color: var(--text); font: 15px/1.5 -apple-system, "Segoe UI", Roboto, sans-serif; padding: 24px 16px 48px; }
@@ -40,8 +40,8 @@
 <body>
 <div class="wrap">
   <div class="card">
-    <h1>🏆 WC 2026 Final — Live Model</h1>
-    <div class="sub" style="text-align:left">Polls the live feed every 60s from 3:00 PM EDT kickoff. Fair (no-vig) model odds — educational, not betting advice.</div>
+    <h1>WC 2026 Final</h1>
+    <div class="sub" style="text-align:left">Polls the live feed every 60s from 3:00 PM EDT kickoff. Fair no-vig model odds — educational, not betting advice.</div>
   </div>
 
   <div class="card" id="pre" style="text-align:center; display:none">
@@ -52,9 +52,9 @@
 
   <div class="card">
     <div class="scoreline">
-      <div style="text-align:center"><div class="team">🇪🇸 Spain</div><div class="score" id="s-esp">0</div></div>
+      <div style="text-align:center"><div class="team">Spain</div><div class="score" id="s-esp">0</div></div>
       <div><div class="clock" id="clock">–</div><div class="sub" id="state">loading…</div></div>
-      <div style="text-align:center"><div class="team">🇦🇷 Argentina</div><div class="score" id="s-arg">0</div></div>
+      <div style="text-align:center"><div class="team">Argentina</div><div class="score" id="s-arg">0</div></div>
     </div>
     <div class="bar">
       <div class="b-esp" id="b-esp" style="width:34%"></div>
@@ -65,7 +65,7 @@
   </div>
 
   <div class="card">
-    <h2>Player Props — Anytime Scorer (remaining time)</h2>
+    <h2>Player Props — Anytime Scorer · Remaining Time</h2>
     <table>
       <thead><tr><th>Player</th><th>Team</th><th class="num">Prob</th><th class="num">Decimal</th><th class="num">American</th></tr></thead>
       <tbody id="props"></tbody>
@@ -73,7 +73,7 @@
   </div>
 
   <div class="card">
-    <h2>Player Props — Shots · On Target · Assist (remaining time)</h2>
+    <h2>Player Props — Shots · On Target · Assist · Remaining Time</h2>
     <div style="overflow-x:auto">
     <table>
       <thead><tr><th>Player</th><th>Team</th><th class="num">1+ Shots</th><th class="num">2+ Shots</th><th class="num">1+ On Target</th><th class="num">Assist</th></tr></thead>
@@ -92,7 +92,7 @@
   </div>
 
   <div class="card">
-    <h2>Total Goals (full match)</h2>
+    <h2>Total Goals — Full Match</h2>
     <table>
       <thead><tr><th>Line</th><th class="num">Over</th><th class="num">Under</th></tr></thead>
       <tbody id="totals"></tbody>
@@ -128,7 +128,7 @@ function render(d) {
   $("props").innerHTML = d.player_props_anytime_scorer.map(p =>
     `<tr><td>${p.player}</td><td><span class="tag">${p.team}</span></td>${fmtOdds(p)}</tr>`).join("");
 
-  const cell = o => `<td class="num">${(o.prob*100).toFixed(1)}% (${o.decimal.toFixed(2)})</td>`;
+  const cell = o => `<td class="num">${(o.prob*100).toFixed(1)}% · ${o.decimal.toFixed(2)}</td>`;
   $("detailed").innerHTML = d.player_props_detailed.map(p =>
     `<tr><td>${p.player}</td><td><span class="tag">${p.team}</span></td>${cell(p.shots_1plus)}${cell(p.shots_2plus)}${cell(p.sot_1plus)}${cell(p.assist)}</tr>`).join("");
 
@@ -145,7 +145,7 @@ function render(d) {
 
   $("totals").innerHTML = [1.5, 2.5, 3.5].map(l => {
     const o = d.total_goals["over_"+l], u = d.total_goals["under_"+l];
-    return `<tr><td>${l}</td><td class="num">${(o.prob*100).toFixed(1)}% (${o.decimal.toFixed(2)})</td><td class="num">${(u.prob*100).toFixed(1)}% (${u.decimal.toFixed(2)})</td></tr>`;
+    return `<tr><td>${l}</td><td class="num">${(o.prob*100).toFixed(1)}% · ${o.decimal.toFixed(2)}</td><td class="num">${(u.prob*100).toFixed(1)}% · ${u.decimal.toFixed(2)}</td></tr>`;
   }).join("");
 
   if (d.key_events && d.key_events.length) {
