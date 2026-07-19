@@ -1,0 +1,24 @@
+{
+  "match": "Spain vs Argentina, WC 2026 Final",
+  "team_scores": {
+    "Spain": 711.8,
+    "Argentina": 665.0
+  },
+  "elo_equivalent": {
+    "Spain": 2197.3,
+    "Argentina": 2145.9
+  },
+  "expected_goals": {
+    "Spain": 1.3,
+    "Argentina": 1.05
+  },
+  "p90": {
+    "Spain": 0.4263,
+    "Draw": 0.2764,
+    "Argentina": 0.2973
+  },
+  "trophy": {
+    "Spain": 0.5757,
+    "Argentina": 0.4243
+  }
+}

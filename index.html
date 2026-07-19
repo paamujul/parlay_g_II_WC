@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parlay-G · Spain vs Argentina Live</title>
+<style>
+  :root {
+    --bg: #0d1117; --card: #161b22; --border: #30363d;
+    --text: #e6edf3; --muted: #8b949e;
+    --esp: #e4393c; --arg: #6cb4ee; --draw: #8b949e; --accent: #3fb950;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body { background: var(--bg); color: var(--text); font: 15px/1.5 -apple-system, "Segoe UI", Roboto, sans-serif; padding: 24px 16px 48px; }
+  .wrap { max-width: 880px; margin: 0 auto; display: grid; gap: 16px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+  h1 { font-size: 20px; } h2 { font-size: 15px; color: var(--muted); margin-bottom: 12px; text-transform: uppercase; letter-spacing: .06em; }
+  .scoreline { display: flex; justify-content: space-between; align-items: center; }
+  .team { font-size: 22px; font-weight: 700; }
+  .score { font-size: 40px; font-weight: 800; font-variant-numeric: tabular-nums; }
+  .clock { color: var(--accent); font-weight: 700; font-size: 18px; text-align: center; }
+  .sub { color: var(--muted); font-size: 13px; text-align: center; margin-top: 4px; }
+  .bar { display: flex; height: 34px; border-radius: 8px; overflow: hidden; font-size: 13px; font-weight: 700; color: #fff; margin-top: 10px; }
+  .bar div { display: flex; align-items: center; justify-content: center; min-width: 2%; transition: width .6s ease; white-space: nowrap; overflow: hidden; }
+  .b-esp { background: var(--esp); } .b-draw { background: var(--draw); } .b-arg { background: #1f6feb; }
+  .legend { display: flex; justify-content: space-between; color: var(--muted); font-size: 13px; margin-top: 6px; }
+  table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+  th, td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--border); }
+  th { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .05em; }
+  td.num, th.num { text-align: right; }
+  .tag { font-size: 11px; padding: 2px 8px; border-radius: 999px; border: 1px solid var(--border); color: var(--muted); }
+  .events li { padding: 6px 0; border-bottom: 1px solid var(--border); list-style: none; font-size: 14px; }
+  .events li:last-child { border-bottom: 0; }
+  .min { color: var(--accent); font-weight: 700; margin-right: 8px; }
+  .footer { color: var(--muted); font-size: 12px; text-align: center; }
+  .err { color: #f85149; }
+  #countdown { font-size: 26px; font-weight: 800; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+    <h1>🏆 WC 2026 Final — Live Model</h1>
+    <div class="sub" style="text-align:left">Polls the live feed every 60s from 3:00 PM EDT kickoff. Fair (no-vig) model odds — educational, not betting advice.</div>
+  </div>
+
+  <div class="card" id="pre" style="text-align:center; display:none">
+    <h2>Kickoff Countdown</h2>
+    <div id="countdown">--:--:--</div>
+    <div class="sub">MetLife Stadium · 3:00 PM EDT · polling is armed and will pick up the match automatically</div>
+  </div>
+
+  <div class="card">
+    <div class="scoreline">
+      <div style="text-align:center"><div class="team">🇪🇸 Spain</div><div class="score" id="s-esp">0</div></div>
+      <div><div class="clock" id="clock">–</div><div class="sub" id="state">loading…</div></div>
+      <div style="text-align:center"><div class="team">🇦🇷 Argentina</div><div class="score" id="s-arg">0</div></div>
+    </div>
+    <div class="bar">
+      <div class="b-esp" id="b-esp" style="width:34%"></div>
+      <div class="b-draw" id="b-draw" style="width:33%"></div>
+      <div class="b-arg" id="b-arg" style="width:33%"></div>
+    </div>
+    <div class="legend"><span>Spain win</span><span>Draw at FT → ET/pens</span><span>Argentina win</span></div>
+  </div>
+
+  <div class="card">
+    <h2>Player Props — Anytime Scorer (remaining time)</h2>
+    <table>
+      <thead><tr><th>Player</th><th>Team</th><th class="num">Prob</th><th class="num">Decimal</th><th class="num">American</th></tr></thead>
+      <tbody id="props"></tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>Total Goals (full match)</h2>
+    <table>
+      <thead><tr><th>Line</th><th class="num">Over</th><th class="num">Under</th></tr></thead>
+      <tbody id="totals"></tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>Key Events</h2>
+    <ul class="events" id="events"><li class="sub">No events yet.</li></ul>
+  </div>
+
+  <div class="footer" id="status">·</div>
+</div>
+
+<script>
+const KICKOFF_UTC = Date.parse("2026-07-19T19:00:00Z"); // 3:00 PM EDT
+const $ = id => document.getElementById(id);
+
+function fmtOdds(o) { return `<td class="num">${(o.prob*100).toFixed(1)}%</td><td class="num">${o.decimal.toFixed(2)}</td><td class="num">${o.american}</td>`; }
+
+function render(d) {
+  $("s-esp").textContent = d.score["Spain"] ?? 0;
+  $("s-arg").textContent = d.score["Argentina"] ?? 0;
+  $("clock").textContent = d.state === "pre" ? "PRE" : (d.state === "post" ? "FT" : d.clock);
+  $("state").textContent = d.state === "in" ? "LIVE" : (d.state === "post" ? "Full time" : "Not started");
+
+  const wp = d.win_probability;
+  const pe = wp["Spain"]*100, pd = wp["Draw"]*100, pa = wp["Argentina"]*100;
+  $("b-esp").style.width = pe + "%";  $("b-esp").textContent = pe.toFixed(1) + "%";
+  $("b-draw").style.width = pd + "%"; $("b-draw").textContent = pd.toFixed(1) + "%";
+  $("b-arg").style.width = pa + "%";  $("b-arg").textContent = pa.toFixed(1) + "%";
+
+  $("props").innerHTML = d.player_props_anytime_scorer.map(p =>
+    `<tr><td>${p.player}</td><td><span class="tag">${p.team}</span></td>${fmtOdds(p)}</tr>`).join("");
+
+  $("totals").innerHTML = [1.5, 2.5, 3.5].map(l => {
+    const o = d.total_goals["over_"+l], u = d.total_goals["under_"+l];
+    return `<tr><td>${l}</td><td class="num">${(o.prob*100).toFixed(1)}% (${o.decimal.toFixed(2)})</td><td class="num">${(u.prob*100).toFixed(1)}% (${u.decimal.toFixed(2)})</td></tr>`;
+  }).join("");
+
+  if (d.key_events && d.key_events.length) {
+    $("events").innerHTML = d.key_events.slice().reverse().map(e =>
+      `<li><span class="min">${e.minute}</span>${e.type} — ${e.team} ${e.players.filter(Boolean).join(", ")}</li>`).join("");
+  }
+  $("status").textContent = `Last update ${new Date().toLocaleTimeString()} · model λ remaining: ESP ${d.model.lambda_remaining["Spain"]} / ARG ${d.model.lambda_remaining["Argentina"]} · auto-refresh 60s`;
+}
+
+async function poll() {
+  try {
+    const r = await fetch("/api/live", { cache: "no-store" });
+    const d = await r.json();
+    if (d.error) throw new Error(d.error);
+    render(d);
+    $("status").classList.remove("err");
+  } catch (e) {
+    $("status").textContent = "Feed error: " + e.message + " — retrying in 60s";
+    $("status").classList.add("err");
+  }
+}
+
+function tickCountdown() {
+  const ms = KICKOFF_UTC - Date.now();
+  if (ms <= 0) { $("pre").style.display = "none"; return; }
+  $("pre").style.display = "block";
+  const h = Math.floor(ms/3.6e6), m = Math.floor(ms/6e4)%60, s = Math.floor(ms/1e3)%60;
+  $("countdown").textContent = `${String(h).padStart(2,"0")}:${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`;
+}
+
+poll();
+setInterval(poll, 60_000);        // collect information every minute
+setInterval(tickCountdown, 1000);
+tickCountdown();
+</script>
+</body>
+</html>

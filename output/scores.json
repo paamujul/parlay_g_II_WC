@@ -1,0 +1,496 @@
+{
+  "Spain": {
+    "players": [
+      {
+        "name": "Lamine Yamal",
+        "pos": "W",
+        "score": 81.1,
+        "seasons": [
+          {
+            "season": "2023-24",
+            "club": "Barcelona",
+            "score": 64.3
+          },
+          {
+            "season": "2024-25",
+            "club": "Barcelona",
+            "score": 83.5
+          },
+          {
+            "season": "2025-26",
+            "club": "Barcelona",
+            "score": 86.6
+          }
+        ]
+      },
+      {
+        "name": "Pedro Porro",
+        "pos": "FB",
+        "score": 78.9,
+        "seasons": [
+          {
+            "season": "2023-24",
+            "club": "Tottenham",
+            "score": 86.2
+          },
+          {
+            "season": "2024-25",
+            "club": "Tottenham",
+            "score": 81.9
+          },
+          {
+            "season": "2025-26",
+            "club": "Tottenham",
+            "score": 73.4
+          }
+        ]
+      },
+      {
+        "name": "Unai Simon",
+        "pos": "GK",
+        "score": 72.7,
+        "seasons": [
+          {
+            "season": "2023-24",
+            "club": "Athletic Club",
+            "score": 60.0
+          },
+          {
+            "season": "2024-25",
+            "club": "Athletic Club",
+            "score": 75.5
+          },
+          {
+            "season": "2025-26",
+            "club": "Athletic Club",
+            "score": 76.2
+          }
+        ]
+      },
+      {
+        "name": "Marc Cucurella",
+        "pos": "FB",
+        "score": 66.3,
+        "seasons": [
+          {
+            "season": "2023-24",
+            "club": "Chelsea",
+            "score": 37.2
+          },
+          {
+            "season": "2024-25",
+            "club": "Chelsea",
+            "score": 80.5
+          },
+          {
+            "season": "2025-26",
+            "club": "Chelsea",
+            "score": 68.1
+          }
+        ]
+      },
+      {
+        "name": "Mikel Oyarzabal",
+        "pos": "FW",
+        "score": 66.0,
+        "seasons": [
+          {
+            "season": "2023-24",
+            "club": "Real Sociedad",
+            "score": 63.2
+          },
+          {
+            "season": "2024-25",
+            "club": "Real Sociedad",
+            "score": 68.8
+          },
+          {
+            "season": "2025-26",
+            "club": "Real Sociedad",
+            "score": 65.0
+          }
+        ]
+      },
+      {
+        "name": "Dani Olmo",
+        "pos": "AM",
+        "score": 62.9,
+        "seasons": [
+          {
+            "season": "2023-24",
+            "club": "RB Leipzig",
+            "score": 54.4
+          },
+          {
+            "season": "2024-25",
+            "club": "Barcelona",
+            "score": 69.6
+          },
+          {
+            "season": "2025-26",
+            "club": "Barcelona",
+            "score": 61.4
+          }
+        ]
+      },
+      {
+        "name": "Rodri",
+        "pos": "DM",
+        "score": 62.4,
+        "seasons": [
+          {
+            "season": "2023-24",
+            "club": "Manchester City",
+            "score": 100.0
+          },
+          {
+            "season": "2024-25",
+            "club": "Manchester City",
+            "score": 43.6
+          },
+          {
+            "season": "2025-26",
+            "club": "Manchester City",
+            "score": 60.3
+          }
+        ]
+      },
+      {
+        "name": "Pau Cubarsi",
+        "pos": "CB",
+        "score": 60.3,
+        "seasons": [
+          {
+            "season": "2023-24",
+            "club": "Barcelona",
+            "score": 41.0
+          },
+          {
+            "season": "2024-25",
+            "club": "Barcelona",
+            "score": 68.2
+          },
+          {
+            "season": "2025-26",
+            "club": "Barcelona",
+            "score": 62.8
+          }
+        ]
+      },
+      {
+        "name": "Alex Baena",
+        "pos": "AM",
+        "score": 57.4,
+        "seasons": [
+          {
+            "season": "2023-24",
+            "club": "Villarreal",
+            "score": 65.5
+          },
+          {
+            "season": "2024-25",
+            "club": "Villarreal",
+            "score": 66.5
+          },
+          {
+            "season": "2025-26",
+            "club": "Atletico Madrid",
+            "score": 46.6
+          }
+        ]
+      },
+      {
+        "name": "Fabian Ruiz",
+        "pos": "CM",
+        "score": 57.1,
+        "seasons": [
+          {
+            "season": "2023-24",
+            "club": "PSG",
+            "score": 52.0
+          },
+          {
+            "season": "2024-25",
+            "club": "PSG",
+            "score": 62.3
+          },
+          {
+            "season": "2025-26",
+            "club": "PSG",
+            "score": 55.2
+          }
+        ]
+      },
+      {
+        "name": "Aymeric Laporte",
+        "pos": "CB",
+        "score": 46.7,
+        "seasons": [
+          {
+            "season": "2023-24",
+            "club": "Al-Nassr",
+            "score": 46.9
+          },
+          {
+            "season": "2024-25",
+            "club": "Al-Nassr",
+            "score": 40.1
+          },
+          {
+            "season": "2025-26",
+            "club": "Athletic Club",
+            "score": 51.7
+          }
+        ]
+      }
+    ],
+    "team_score": 711.8
+  },
+  "Argentina": {
+    "players": [
+      {
+        "name": "Cristian Romero",
+        "pos": "CB",
+        "score": 79.6,
+        "seasons": [
+          {
+            "season": "2023-24",
+            "club": "Tottenham",
+            "score": 94.7
+          },
+          {
+            "season": "2024-25",
+            "club": "Tottenham",
+            "score": 75.9
+          },
+          {
+            "season": "2025-26",
+            "club": "Tottenham",
+            "score": 75.9
+          }
+        ]
+      },
+      {
+        "name": "Julian Alvarez",
+        "pos": "FW",
+        "score": 75.4,
+        "seasons": [
+          {
+            "season": "2023-24",
+            "club": "Manchester City",
+            "score": 77.0
+          },
+          {
+            "season": "2024-25",
+            "club": "Atletico Madrid",
+            "score": 76.3
+          },
+          {
+            "season": "2025-26",
+            "club": "Atletico Madrid",
+            "score": 74.0
+          }
+        ]
+      },
+      {
+        "name": "Emiliano Martinez",
+        "pos": "GK",
+        "score": 72.3,
+        "seasons": [
+          {
+            "season": "2023-24",
+            "club": "Aston Villa",
+            "score": 75.4
+          },
+          {
+            "season": "2024-25",
+            "club": "Aston Villa",
+            "score": 70.7
+          },
+          {
+            "season": "2025-26",
+            "club": "Aston Villa",
+            "score": 72.2
+          }
+        ]
+      },
+      {
+        "name": "Enzo Fernandez",
+        "pos": "CM",
+        "score": 71.7,
+        "seasons": [
+          {
+            "season": "2023-24",
+            "club": "Chelsea",
+            "score": 60.2
+          },
+          {
+            "season": "2024-25",
+            "club": "Chelsea",
+            "score": 73.1
+          },
+          {
+            "season": "2025-26",
+            "club": "Chelsea",
+            "score": 75.8
+          }
+        ]
+      },
+      {
+        "name": "Alexis Mac Allister",
+        "pos": "CM",
+        "score": 65.0,
+        "seasons": [
+          {
+            "season": "2023-24",
+            "club": "Liverpool",
+            "score": 72.5
+          },
+          {
+            "season": "2024-25",
+            "club": "Liverpool",
+            "score": 64.8
+          },
+          {
+            "season": "2025-26",
+            "club": "Liverpool",
+            "score": 61.9
+          }
+        ]
+      },
+      {
+        "name": "Lionel Messi",
+        "pos": "FW",
+        "score": 55.8,
+        "seasons": [
+          {
+            "season": "2023-24",
+            "club": "Inter Miami",
+            "score": 48.1
+          },
+          {
+            "season": "2024-25",
+            "club": "Inter Miami",
+            "score": 57.7
+          },
+          {
+            "season": "2025-26",
+            "club": "Inter Miami",
+            "score": 57.8
+          }
+        ]
+      },
+      {
+        "name": "Leandro Paredes",
+        "pos": "DM",
+        "score": 53.2,
+        "seasons": [
+          {
+            "season": "2023-24",
+            "club": "Roma",
+            "score": 61.0
+          },
+          {
+            "season": "2024-25",
+            "club": "Roma",
+            "score": 65.8
+          },
+          {
+            "season": "2025-26",
+            "club": "Boca Juniors",
+            "score": 40.0
+          }
+        ]
+      },
+      {
+        "name": "Rodrigo De Paul",
+        "pos": "CM",
+        "score": 52.2,
+        "seasons": [
+          {
+            "season": "2023-24",
+            "club": "Atletico Madrid",
+            "score": 61.3
+          },
+          {
+            "season": "2024-25",
+            "club": "Atletico Madrid",
+            "score": 61.6
+          },
+          {
+            "season": "2025-26",
+            "club": "Inter Miami",
+            "score": 40.8
+          }
+        ]
+      },
+      {
+        "name": "Nicolas Tagliafico",
+        "pos": "FB",
+        "score": 51.1,
+        "seasons": [
+          {
+            "season": "2023-24",
+            "club": "Lyon",
+            "score": 57.5
+          },
+          {
+            "season": "2024-25",
+            "club": "Lyon",
+            "score": 50.5
+          },
+          {
+            "season": "2025-26",
+            "club": "Lyon",
+            "score": 48.7
+          }
+        ]
+      },
+      {
+        "name": "Nahuel Molina",
+        "pos": "FB",
+        "score": 50.4,
+        "seasons": [
+          {
+            "season": "2023-24",
+            "club": "Atletico Madrid",
+            "score": 55.9
+          },
+          {
+            "season": "2024-25",
+            "club": "Atletico Madrid",
+            "score": 56.4
+          },
+          {
+            "season": "2025-26",
+            "club": "Atletico Madrid",
+            "score": 43.3
+          }
+        ]
+      },
+      {
+        "name": "Lisandro Martinez",
+        "pos": "CB",
+        "score": 38.3,
+        "seasons": [
+          {
+            "season": "2023-24",
+            "club": "Manchester United",
+            "score": 14.6
+          },
+          {
+            "season": "2024-25",
+            "club": "Manchester United",
+            "score": 75.6
+          },
+          {
+            "season": "2025-26",
+            "club": "Manchester United",
+            "score": 19.9
+          }
+        ]
+      }
+    ],
+    "team_score": 665.0
+  }
+}

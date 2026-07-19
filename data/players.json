@@ -1,0 +1,189 @@
+{
+  "_meta": {
+    "note": "Club stats per season, all competitions, 2023-24 through 2025-26. Compiled as approximate aggregates from public sources (FBref/Transfermarkt-style totals). 2025-26 figures are full-season estimates. Swap in exact exports for production use - the pipeline only depends on this schema.",
+    "schema": "seasons[]: {season, club, league, apps, minutes, goals, assists, clean_sheets (GK only)}",
+    "positions": "GK, CB, FB (full-back), DM, CM, AM (attacking mid), W (winger), FW (striker)"
+  },
+  "teams": {
+    "Spain": [
+      {
+        "name": "Unai Simon", "pos": "GK",
+        "seasons": [
+          {"season": "2023-24", "club": "Athletic Club", "league": "La Liga", "apps": 25, "minutes": 2250, "goals": 0, "assists": 0, "clean_sheets": 9},
+          {"season": "2024-25", "club": "Athletic Club", "league": "La Liga", "apps": 49, "minutes": 4410, "goals": 0, "assists": 0, "clean_sheets": 18},
+          {"season": "2025-26", "club": "Athletic Club", "league": "La Liga", "apps": 40, "minutes": 3600, "goals": 0, "assists": 0, "clean_sheets": 15}
+        ]
+      },
+      {
+        "name": "Pedro Porro", "pos": "FB",
+        "seasons": [
+          {"season": "2023-24", "club": "Tottenham", "league": "Premier League", "apps": 33, "minutes": 2800, "goals": 3, "assists": 8},
+          {"season": "2024-25", "club": "Tottenham", "league": "Premier League", "apps": 45, "minutes": 3300, "goals": 3, "assists": 7},
+          {"season": "2025-26", "club": "Tottenham", "league": "Premier League", "apps": 40, "minutes": 3200, "goals": 2, "assists": 6}
+        ]
+      },
+      {
+        "name": "Pau Cubarsi", "pos": "CB",
+        "seasons": [
+          {"season": "2023-24", "club": "Barcelona", "league": "La Liga", "apps": 27, "minutes": 2100, "goals": 0, "assists": 1},
+          {"season": "2024-25", "club": "Barcelona", "league": "La Liga", "apps": 51, "minutes": 4000, "goals": 1, "assists": 2},
+          {"season": "2025-26", "club": "Barcelona", "league": "La Liga", "apps": 45, "minutes": 3600, "goals": 1, "assists": 1}
+        ]
+      },
+      {
+        "name": "Aymeric Laporte", "pos": "CB",
+        "seasons": [
+          {"season": "2023-24", "club": "Al-Nassr", "league": "Saudi Pro League", "apps": 32, "minutes": 2800, "goals": 2, "assists": 1},
+          {"season": "2024-25", "club": "Al-Nassr", "league": "Saudi Pro League", "apps": 31, "minutes": 2600, "goals": 2, "assists": 0},
+          {"season": "2025-26", "club": "Athletic Club", "league": "La Liga", "apps": 35, "minutes": 3000, "goals": 1, "assists": 0}
+        ]
+      },
+      {
+        "name": "Marc Cucurella", "pos": "FB",
+        "seasons": [
+          {"season": "2023-24", "club": "Chelsea", "league": "Premier League", "apps": 26, "minutes": 1900, "goals": 0, "assists": 2},
+          {"season": "2024-25", "club": "Chelsea", "league": "Premier League", "apps": 52, "minutes": 4300, "goals": 4, "assists": 8},
+          {"season": "2025-26", "club": "Chelsea", "league": "Premier League", "apps": 45, "minutes": 3800, "goals": 2, "assists": 5}
+        ]
+      },
+      {
+        "name": "Rodri", "pos": "DM",
+        "seasons": [
+          {"season": "2023-24", "club": "Manchester City", "league": "Premier League", "apps": 50, "minutes": 4300, "goals": 9, "assists": 14},
+          {"season": "2024-25", "club": "Manchester City", "league": "Premier League", "apps": 9, "minutes": 700, "goals": 1, "assists": 1},
+          {"season": "2025-26", "club": "Manchester City", "league": "Premier League", "apps": 30, "minutes": 2300, "goals": 2, "assists": 4}
+        ]
+      },
+      {
+        "name": "Fabian Ruiz", "pos": "CM",
+        "seasons": [
+          {"season": "2023-24", "club": "PSG", "league": "Ligue 1", "apps": 43, "minutes": 2800, "goals": 3, "assists": 5},
+          {"season": "2024-25", "club": "PSG", "league": "Ligue 1", "apps": 55, "minutes": 3900, "goals": 5, "assists": 8},
+          {"season": "2025-26", "club": "PSG", "league": "Ligue 1", "apps": 40, "minutes": 2900, "goals": 4, "assists": 5}
+        ]
+      },
+      {
+        "name": "Lamine Yamal", "pos": "W",
+        "seasons": [
+          {"season": "2023-24", "club": "Barcelona", "league": "La Liga", "apps": 50, "minutes": 3300, "goals": 7, "assists": 10},
+          {"season": "2024-25", "club": "Barcelona", "league": "La Liga", "apps": 55, "minutes": 4200, "goals": 18, "assists": 21},
+          {"season": "2025-26", "club": "Barcelona", "league": "La Liga", "apps": 45, "minutes": 3600, "goals": 20, "assists": 15}
+        ]
+      },
+      {
+        "name": "Dani Olmo", "pos": "AM",
+        "seasons": [
+          {"season": "2023-24", "club": "RB Leipzig", "league": "Bundesliga", "apps": 35, "minutes": 2300, "goals": 8, "assists": 5},
+          {"season": "2024-25", "club": "Barcelona", "league": "La Liga", "apps": 40, "minutes": 2500, "goals": 12, "assists": 7},
+          {"season": "2025-26", "club": "Barcelona", "league": "La Liga", "apps": 38, "minutes": 2400, "goals": 9, "assists": 6}
+        ]
+      },
+      {
+        "name": "Alex Baena", "pos": "AM",
+        "seasons": [
+          {"season": "2023-24", "club": "Villarreal", "league": "La Liga", "apps": 49, "minutes": 3900, "goals": 5, "assists": 14},
+          {"season": "2024-25", "club": "Villarreal", "league": "La Liga", "apps": 41, "minutes": 3300, "goals": 7, "assists": 10},
+          {"season": "2025-26", "club": "Atletico Madrid", "league": "La Liga", "apps": 30, "minutes": 1900, "goals": 4, "assists": 5}
+        ]
+      },
+      {
+        "name": "Mikel Oyarzabal", "pos": "FW",
+        "seasons": [
+          {"season": "2023-24", "club": "Real Sociedad", "league": "La Liga", "apps": 44, "minutes": 3200, "goals": 13, "assists": 5},
+          {"season": "2024-25", "club": "Real Sociedad", "league": "La Liga", "apps": 53, "minutes": 3900, "goals": 18, "assists": 7},
+          {"season": "2025-26", "club": "Real Sociedad", "league": "La Liga", "apps": 40, "minutes": 3100, "goals": 14, "assists": 6}
+        ]
+      }
+    ],
+    "Argentina": [
+      {
+        "name": "Emiliano Martinez", "pos": "GK",
+        "seasons": [
+          {"season": "2023-24", "club": "Aston Villa", "league": "Premier League", "apps": 46, "minutes": 4100, "goals": 0, "assists": 0, "clean_sheets": 16},
+          {"season": "2024-25", "club": "Aston Villa", "league": "Premier League", "apps": 51, "minutes": 4600, "goals": 0, "assists": 0, "clean_sheets": 15},
+          {"season": "2025-26", "club": "Aston Villa", "league": "Premier League", "apps": 45, "minutes": 4050, "goals": 0, "assists": 0, "clean_sheets": 14}
+        ]
+      },
+      {
+        "name": "Nahuel Molina", "pos": "FB",
+        "seasons": [
+          {"season": "2023-24", "club": "Atletico Madrid", "league": "La Liga", "apps": 42, "minutes": 3100, "goals": 1, "assists": 3},
+          {"season": "2024-25", "club": "Atletico Madrid", "league": "La Liga", "apps": 38, "minutes": 2500, "goals": 1, "assists": 4},
+          {"season": "2025-26", "club": "Atletico Madrid", "league": "La Liga", "apps": 32, "minutes": 2100, "goals": 0, "assists": 3}
+        ]
+      },
+      {
+        "name": "Cristian Romero", "pos": "CB",
+        "seasons": [
+          {"season": "2023-24", "club": "Tottenham", "league": "Premier League", "apps": 34, "minutes": 3000, "goals": 5, "assists": 1},
+          {"season": "2024-25", "club": "Tottenham", "league": "Premier League", "apps": 36, "minutes": 3100, "goals": 2, "assists": 1},
+          {"season": "2025-26", "club": "Tottenham", "league": "Premier League", "apps": 40, "minutes": 3500, "goals": 2, "assists": 1}
+        ]
+      },
+      {
+        "name": "Lisandro Martinez", "pos": "CB",
+        "seasons": [
+          {"season": "2023-24", "club": "Manchester United", "league": "Premier League", "apps": 15, "minutes": 1100, "goals": 0, "assists": 0},
+          {"season": "2024-25", "club": "Manchester United", "league": "Premier League", "apps": 35, "minutes": 2900, "goals": 2, "assists": 1},
+          {"season": "2025-26", "club": "Manchester United", "league": "Premier League", "apps": 20, "minutes": 1500, "goals": 0, "assists": 0}
+        ]
+      },
+      {
+        "name": "Nicolas Tagliafico", "pos": "FB",
+        "seasons": [
+          {"season": "2023-24", "club": "Lyon", "league": "Ligue 1", "apps": 39, "minutes": 3200, "goals": 3, "assists": 2},
+          {"season": "2024-25", "club": "Lyon", "league": "Ligue 1", "apps": 35, "minutes": 2800, "goals": 2, "assists": 2},
+          {"season": "2025-26", "club": "Lyon", "league": "Ligue 1", "apps": 34, "minutes": 2700, "goals": 1, "assists": 3}
+        ]
+      },
+      {
+        "name": "Rodrigo De Paul", "pos": "CM",
+        "seasons": [
+          {"season": "2023-24", "club": "Atletico Madrid", "league": "La Liga", "apps": 53, "minutes": 3800, "goals": 4, "assists": 5},
+          {"season": "2024-25", "club": "Atletico Madrid", "league": "La Liga", "apps": 54, "minutes": 3600, "goals": 3, "assists": 6},
+          {"season": "2025-26", "club": "Inter Miami", "league": "MLS", "apps": 35, "minutes": 2900, "goals": 4, "assists": 8}
+        ]
+      },
+      {
+        "name": "Leandro Paredes", "pos": "DM",
+        "seasons": [
+          {"season": "2023-24", "club": "Roma", "league": "Serie A", "apps": 42, "minutes": 3300, "goals": 3, "assists": 3},
+          {"season": "2024-25", "club": "Roma", "league": "Serie A", "apps": 49, "minutes": 3600, "goals": 3, "assists": 5},
+          {"season": "2025-26", "club": "Boca Juniors", "league": "Argentine Primera", "apps": 30, "minutes": 2500, "goals": 2, "assists": 4}
+        ]
+      },
+      {
+        "name": "Enzo Fernandez", "pos": "CM",
+        "seasons": [
+          {"season": "2023-24", "club": "Chelsea", "league": "Premier League", "apps": 40, "minutes": 3400, "goals": 3, "assists": 4},
+          {"season": "2024-25", "club": "Chelsea", "league": "Premier League", "apps": 53, "minutes": 4200, "goals": 7, "assists": 9},
+          {"season": "2025-26", "club": "Chelsea", "league": "Premier League", "apps": 45, "minutes": 3700, "goals": 8, "assists": 7}
+        ]
+      },
+      {
+        "name": "Alexis Mac Allister", "pos": "CM",
+        "seasons": [
+          {"season": "2023-24", "club": "Liverpool", "league": "Premier League", "apps": 46, "minutes": 3600, "goals": 7, "assists": 6},
+          {"season": "2024-25", "club": "Liverpool", "league": "Premier League", "apps": 50, "minutes": 3800, "goals": 5, "assists": 5},
+          {"season": "2025-26", "club": "Liverpool", "league": "Premier League", "apps": 42, "minutes": 3300, "goals": 4, "assists": 4}
+        ]
+      },
+      {
+        "name": "Lionel Messi", "pos": "FW",
+        "seasons": [
+          {"season": "2023-24", "club": "Inter Miami", "league": "MLS", "apps": 25, "minutes": 1900, "goals": 21, "assists": 14},
+          {"season": "2024-25", "club": "Inter Miami", "league": "MLS", "apps": 40, "minutes": 3300, "goals": 29, "assists": 16},
+          {"season": "2025-26", "club": "Inter Miami", "league": "MLS", "apps": 40, "minutes": 3400, "goals": 30, "assists": 15}
+        ]
+      },
+      {
+        "name": "Julian Alvarez", "pos": "FW",
+        "seasons": [
+          {"season": "2023-24", "club": "Manchester City", "league": "Premier League", "apps": 54, "minutes": 3800, "goals": 19, "assists": 13},
+          {"season": "2024-25", "club": "Atletico Madrid", "league": "La Liga", "apps": 57, "minutes": 4500, "goals": 29, "assists": 8},
+          {"season": "2025-26", "club": "Atletico Madrid", "league": "La Liga", "apps": 42, "minutes": 3500, "goals": 20, "assists": 7}
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:www.si.com)",
+      "Bash(python3 -c \"import numpy, pandas, sklearn; print\\('numpy', numpy.__version__, '| pandas', pandas.__version__, '| sklearn', sklearn.__version__\\)\")",
+      "WebFetch(domain:www.fifa.com)",
+      "Bash(python3 scoring.py)",
+      "Bash(python3 backtest.py)",
+      "Bash(python3 predict.py)",
+      "Bash(python3 live_model.py)",
+      "Bash(curl -s --max-time 20 \"https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/summary?event=760517\" -o /private/tmp/claude-501/-Users-sainathagoudpaamujula-Parlay-G-WC-2026/ecc5ebb7-52ed-493e-857a-d35db3cac8c0/scratchpad/espn.json)",
+      "Bash(python3 -c ' *)",
+      "Bash(gh auth *)",
+      "Bash(git config *)",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git commit -q -m 'Spain vs Argentina WC 2026 final predictor: player scoring, backtest, live Vercel app *)",
+      "Bash(git remote *)",
+      "Bash(git push *)"
+    ]
+  }
+}

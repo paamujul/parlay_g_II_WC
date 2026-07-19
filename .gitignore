@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+output/live_model.joblib
+.vercel
+.DS_Store

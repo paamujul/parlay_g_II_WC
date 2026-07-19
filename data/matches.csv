@@ -1,0 +1,86 @@
+date,team,opponent,opp_elo,competition,result90
+2023-03-25,Spain,Norway,1850,EURO Qualifier,W
+2023-03-28,Spain,Scotland,1800,EURO Qualifier,L
+2023-06-15,Spain,Italy,1950,Nations League SF,W
+2023-06-18,Spain,Croatia,1950,Nations League F,D
+2023-09-08,Spain,Georgia,1700,EURO Qualifier,W
+2023-09-12,Spain,Cyprus,1500,EURO Qualifier,W
+2023-10-12,Spain,Scotland,1800,EURO Qualifier,W
+2023-10-15,Spain,Norway,1850,EURO Qualifier,W
+2023-11-16,Spain,Cyprus,1500,EURO Qualifier,W
+2023-11-19,Spain,Georgia,1700,EURO Qualifier,W
+2024-03-22,Spain,Colombia,1950,Friendly,L
+2024-03-26,Spain,Brazil,2050,Friendly,D
+2024-06-05,Spain,Andorra,1200,Friendly,W
+2024-06-08,Spain,Northern Ireland,1600,Friendly,W
+2024-06-15,Spain,Croatia,1950,EURO 2024,W
+2024-06-20,Spain,Italy,1950,EURO 2024,W
+2024-06-24,Spain,Albania,1700,EURO 2024,W
+2024-06-30,Spain,Georgia,1700,EURO 2024,W
+2024-07-05,Spain,Germany,2000,EURO 2024 QF,D
+2024-07-09,Spain,France,2080,EURO 2024 SF,W
+2024-07-14,Spain,England,2050,EURO 2024 F,W
+2024-09-05,Spain,Serbia,1800,Nations League,D
+2024-09-08,Spain,Switzerland,1900,Nations League,W
+2024-10-12,Spain,Denmark,1850,Nations League,W
+2024-10-15,Spain,Serbia,1800,Nations League,W
+2024-11-15,Spain,Denmark,1850,Nations League,W
+2024-11-18,Spain,Switzerland,1900,Nations League,W
+2025-03-20,Spain,Netherlands,2000,Nations League QF,D
+2025-03-23,Spain,Netherlands,2000,Nations League QF,D
+2025-06-05,Spain,France,2080,Nations League SF,W
+2025-06-08,Spain,Portugal,2000,Nations League F,D
+2025-09-04,Spain,Bulgaria,1550,WC Qualifier,W
+2025-09-07,Spain,Turkey,1850,WC Qualifier,W
+2025-10-11,Spain,Georgia,1700,WC Qualifier,W
+2025-10-14,Spain,Bulgaria,1550,WC Qualifier,W
+2025-11-15,Spain,Georgia,1700,WC Qualifier,W
+2025-11-18,Spain,Turkey,1850,WC Qualifier,D
+2026-06-16,Spain,Cape Verde,1600,WC 2026 Group,D
+2026-06-21,Spain,Saudi Arabia,1650,WC 2026 Group,W
+2026-06-26,Spain,Uruguay,1950,WC 2026 Group,W
+2026-07-03,Spain,Austria,1880,WC 2026 R16,W
+2026-07-09,Spain,Portugal,2000,WC 2026 QF,W
+2026-07-14,Spain,France,2080,WC 2026 SF,W
+2023-03-23,Argentina,Panama,1700,Friendly,W
+2023-03-28,Argentina,Curacao,1550,Friendly,W
+2023-06-15,Argentina,Australia,1800,Friendly,W
+2023-06-19,Argentina,Indonesia,1350,Friendly,W
+2023-09-07,Argentina,Ecuador,1900,WC Qualifier,W
+2023-09-12,Argentina,Bolivia,1600,WC Qualifier,W
+2023-10-12,Argentina,Paraguay,1750,WC Qualifier,W
+2023-10-17,Argentina,Peru,1745,WC Qualifier,W
+2023-11-16,Argentina,Uruguay,1950,WC Qualifier,L
+2023-11-21,Argentina,Brazil,2050,WC Qualifier,W
+2024-03-22,Argentina,El Salvador,1400,Friendly,W
+2024-03-26,Argentina,Costa Rica,1650,Friendly,W
+2024-06-09,Argentina,Ecuador,1900,Friendly,W
+2024-06-14,Argentina,Guatemala,1500,Friendly,W
+2024-06-20,Argentina,Canada,1800,Copa America,W
+2024-06-25,Argentina,Chile,1750,Copa America,W
+2024-06-29,Argentina,Peru,1745,Copa America,W
+2024-07-04,Argentina,Ecuador,1900,Copa America QF,D
+2024-07-09,Argentina,Canada,1800,Copa America SF,W
+2024-07-14,Argentina,Colombia,1950,Copa America F,D
+2024-09-05,Argentina,Chile,1750,WC Qualifier,W
+2024-09-10,Argentina,Colombia,1950,WC Qualifier,L
+2024-10-10,Argentina,Venezuela,1720,WC Qualifier,D
+2024-10-15,Argentina,Bolivia,1600,WC Qualifier,W
+2024-11-14,Argentina,Paraguay,1750,WC Qualifier,L
+2024-11-19,Argentina,Peru,1745,WC Qualifier,W
+2025-03-21,Argentina,Uruguay,1950,WC Qualifier,W
+2025-03-25,Argentina,Brazil,2050,WC Qualifier,W
+2025-06-05,Argentina,Chile,1750,WC Qualifier,W
+2025-06-10,Argentina,Colombia,1950,WC Qualifier,D
+2025-09-04,Argentina,Venezuela,1720,WC Qualifier,W
+2025-09-09,Argentina,Ecuador,1900,WC Qualifier,L
+2025-10-10,Argentina,Venezuela,1720,Friendly,W
+2025-10-13,Argentina,Puerto Rico,1200,Friendly,W
+2025-11-14,Argentina,Angola,1500,Friendly,W
+2026-06-14,Argentina,Algeria,1750,WC 2026 Group,W
+2026-06-19,Argentina,Austria,1880,WC 2026 Group,W
+2026-06-24,Argentina,Jordan,1600,WC 2026 Group,W
+2026-06-29,Argentina,Cape Verde,1600,WC 2026 R32,W
+2026-07-03,Argentina,Egypt,1750,WC 2026 R16,W
+2026-07-10,Argentina,Switzerland,1900,WC 2026 QF,D
+2026-07-15,Argentina,England,2050,WC 2026 SF,W
