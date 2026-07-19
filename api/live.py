@@ -46,9 +46,41 @@ ATTACK_SHARES = {
     },
 }
 
+# Per-90 shooting/creating priors from recent club form (shots, shots on
+# target) and share of the team's assisted goals each player provides.
+PLAYER_RATES = {
+    "Spain": {
+        "Lamine Yamal":    {"shots90": 3.6, "sot90": 1.60, "assist_share": 0.30},
+        "Mikel Oyarzabal": {"shots90": 2.8, "sot90": 1.30, "assist_share": 0.12},
+        "Dani Olmo":       {"shots90": 2.4, "sot90": 1.10, "assist_share": 0.12},
+        "Alex Baena":      {"shots90": 1.8, "sot90": 0.70, "assist_share": 0.20},
+        "Pedro Porro":     {"shots90": 1.2, "sot90": 0.45, "assist_share": 0.10},
+        "Fabian Ruiz":     {"shots90": 1.5, "sot90": 0.60, "assist_share": 0.08},
+        "Rodri":           {"shots90": 1.3, "sot90": 0.50, "assist_share": 0.05},
+        "Marc Cucurella":  {"shots90": 0.8, "sot90": 0.30, "assist_share": 0.05},
+    },
+    "Argentina": {
+        "Lionel Messi":        {"shots90": 3.8, "sot90": 1.70, "assist_share": 0.28},
+        "Julian Alvarez":      {"shots90": 3.2, "sot90": 1.50, "assist_share": 0.10},
+        "Enzo Fernandez":      {"shots90": 1.8, "sot90": 0.70, "assist_share": 0.14},
+        "Alexis Mac Allister": {"shots90": 1.6, "sot90": 0.65, "assist_share": 0.12},
+        "Rodrigo De Paul":     {"shots90": 1.3, "sot90": 0.50, "assist_share": 0.12},
+        "Leandro Paredes":     {"shots90": 1.4, "sot90": 0.50, "assist_share": 0.06},
+        "Cristian Romero":     {"shots90": 0.9, "sot90": 0.40, "assist_share": 0.02},
+    },
+}
+
+ASSISTED_GOAL_FRACTION = 0.80    # share of goals that carry an assist
+CORNER_RATE_90 = {"Spain": 5.3, "Argentina": 4.7}  # corners won per 90
+
 
 def poisson_pmf(lam, k):
     return math.exp(-lam) * lam ** k / math.factorial(k)
+
+
+def p_at_least(lam, k):
+    """P(Poisson(lam) >= k)."""
+    return max(1.0 - sum(poisson_pmf(lam, i) for i in range(k)), 0.0)
 
 
 def outcome_probs(score_h, score_a, lam_h, lam_a):
@@ -138,10 +170,13 @@ def build_payload():
         mom_h = 0.85 + 0.30 * share
         mom_a = 0.85 + 0.30 * (1 - share)
 
-    lam_h = (LAMBDA_90[home_name] / 90.0) * remaining * mom_h * \
+    # Per-team "remaining opportunity" factor: time left x momentum x red cards.
+    fac_h = (remaining / 90.0) * mom_h * \
         (RED_CARD_MULT if reds[home_name] > reds[away_name] else 1.0)
-    lam_a = (LAMBDA_90[away_name] / 90.0) * remaining * mom_a * \
+    fac_a = (remaining / 90.0) * mom_a * \
         (RED_CARD_MULT if reds[away_name] > reds[home_name] else 1.0)
+    lam_h = LAMBDA_90[home_name] * fac_h
+    lam_a = LAMBDA_90[away_name] * fac_a
 
     p_h, p_d, p_a = outcome_probs(score_h, score_a, lam_h, lam_a)
 
@@ -154,6 +189,44 @@ def build_payload():
             props.append({"player": player, "team": team,
                           **to_odds(1 - math.exp(-lam_team * share))})
     props.sort(key=lambda r: -r["prob"])
+
+    # Detailed player props: shots / shots on target / assist, remaining time
+    detailed = []
+    for team, fac, lam_team in ((home_name, fac_h, lam_h), (away_name, fac_a, lam_a)):
+        for player, r in PLAYER_RATES[team].items():
+            lam_shots = r["shots90"] * fac
+            lam_sot = r["sot90"] * fac
+            lam_assist = lam_team * ASSISTED_GOAL_FRACTION * r["assist_share"]
+            detailed.append({
+                "player": player, "team": team,
+                "shots_1plus": to_odds(p_at_least(lam_shots, 1)),
+                "shots_2plus": to_odds(p_at_least(lam_shots, 2)),
+                "sot_1plus": to_odds(p_at_least(lam_sot, 1)),
+                "assist": to_odds(p_at_least(lam_assist, 1)),
+            })
+    detailed.sort(key=lambda r: -r["shots_1plus"]["prob"])
+
+    # Corner kicks: live counts + Poisson remaining (team rates x momentum)
+    corners_h = int(team_stat(data.get("boxscore", {}), 0, "wonCorners", "cornerKicks") or 0)
+    corners_a = int(team_stat(data.get("boxscore", {}), 1, "wonCorners", "cornerKicks") or 0)
+    lam_c_h = CORNER_RATE_90[home_name] * fac_h
+    lam_c_a = CORNER_RATE_90[away_name] * fac_a
+    corners = {
+        "current": {home_name: corners_h, away_name: corners_a},
+        "match_totals": {}, "team_totals": {home_name: {}, away_name: {}},
+    }
+    corners_now = corners_h + corners_a
+    for line in (8.5, 9.5, 10.5):
+        need = max(int(math.floor(line)) + 1 - corners_now, 0)
+        p_over = p_at_least(lam_c_h + lam_c_a, need) if need > 0 else 1.0
+        corners["match_totals"][f"over_{line}"] = to_odds(p_over)
+        corners["match_totals"][f"under_{line}"] = to_odds(1 - p_over)
+    for team, count, lam_c in ((home_name, corners_h, lam_c_h),
+                               (away_name, corners_a, lam_c_a)):
+        need = max(5 - count, 0)
+        p_over = p_at_least(lam_c, need) if need > 0 else 1.0
+        corners["team_totals"][team]["over_4.5"] = to_odds(p_over)
+        corners["team_totals"][team]["under_4.5"] = to_odds(1 - p_over)
 
     # Match totals (goals so far + Poisson remaining)
     lam_total = lam_h + lam_a
@@ -174,6 +247,8 @@ def build_payload():
                             away_name: round(p_a, 4)},
         "note_if_draw": "Draw at FT goes to extra time and penalties.",
         "player_props_anytime_scorer": props,
+        "player_props_detailed": detailed,
+        "corners": corners,
         "total_goals": totals,
         "key_events": events[-10:],
         "model": {"lambda_remaining": {home_name: round(lam_h, 3),

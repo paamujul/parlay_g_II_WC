@@ -73,6 +73,25 @@
   </div>
 
   <div class="card">
+    <h2>Player Props — Shots · On Target · Assist (remaining time)</h2>
+    <div style="overflow-x:auto">
+    <table>
+      <thead><tr><th>Player</th><th>Team</th><th class="num">1+ Shots</th><th class="num">2+ Shots</th><th class="num">1+ On Target</th><th class="num">Assist</th></tr></thead>
+      <tbody id="detailed"></tbody>
+    </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Corner Kicks</h2>
+    <div class="sub" id="corner-count" style="text-align:left; margin-bottom:8px">–</div>
+    <table>
+      <thead><tr><th>Market</th><th class="num">Over</th><th class="num">Under</th></tr></thead>
+      <tbody id="corners"></tbody>
+    </table>
+  </div>
+
+  <div class="card">
     <h2>Total Goals (full match)</h2>
     <table>
       <thead><tr><th>Line</th><th class="num">Over</th><th class="num">Under</th></tr></thead>
@@ -108,6 +127,21 @@ function render(d) {
 
   $("props").innerHTML = d.player_props_anytime_scorer.map(p =>
     `<tr><td>${p.player}</td><td><span class="tag">${p.team}</span></td>${fmtOdds(p)}</tr>`).join("");
+
+  const cell = o => `<td class="num">${(o.prob*100).toFixed(1)}% (${o.decimal.toFixed(2)})</td>`;
+  $("detailed").innerHTML = d.player_props_detailed.map(p =>
+    `<tr><td>${p.player}</td><td><span class="tag">${p.team}</span></td>${cell(p.shots_1plus)}${cell(p.shots_2plus)}${cell(p.sot_1plus)}${cell(p.assist)}</tr>`).join("");
+
+  const c = d.corners;
+  $("corner-count").textContent = `Corners so far — Spain ${c.current["Spain"] ?? 0}, Argentina ${c.current["Argentina"] ?? 0}`;
+  const cornerRows = [];
+  for (const l of [8.5, 9.5, 10.5]) {
+    cornerRows.push(`<tr><td>Match total ${l}</td>${cell(c.match_totals["over_"+l])}${cell(c.match_totals["under_"+l])}</tr>`);
+  }
+  for (const t of ["Spain", "Argentina"]) {
+    cornerRows.push(`<tr><td>${t} corners 4.5</td>${cell(c.team_totals[t]["over_4.5"])}${cell(c.team_totals[t]["under_4.5"])}</tr>`);
+  }
+  $("corners").innerHTML = cornerRows.join("");
 
   $("totals").innerHTML = [1.5, 2.5, 3.5].map(l => {
     const o = d.total_goals["over_"+l], u = d.total_goals["under_"+l];
